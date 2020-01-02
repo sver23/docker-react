@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t swati/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true swati/docker-react npm run test
